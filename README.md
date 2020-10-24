@@ -1,6 +1,6 @@
-# TypeScript boilerplate
+# Parrot API
 
-## Included
+## Stack
 
 - TypeScript
 - Prettier

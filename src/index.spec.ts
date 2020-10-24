@@ -1,5 +1,9 @@
-import { main } from './index'
+it('loads .env file', () => {
+  const loadEnv = jest.fn()
+  jest.mock('dotenv', () => ({ config: loadEnv }))
 
-it('returns "Hello Parrot"', () => {
-  expect(main()).toBe('Hello Parrot')
+  // eslint-disable-next-line global-require
+  require('./index')
+
+  expect(loadEnv).toBeCalled()
 })

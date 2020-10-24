@@ -1,6 +1,6 @@
 {
-  "name": "typescript-boilerplate",
-  "description": "Minimalistic TypeScript project boilerplate",
+  "name": "parrot-api",
+  "description": "API for Parrot tokenizer",
   "version": "1.0.0",
   "author": "Peter Absolon <peterabsolon@yahoo.com>",
   "license": "MIT",
