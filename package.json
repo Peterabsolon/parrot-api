@@ -1,5 +1,6 @@
 {
   "name": "typescript-boilerplate",
+  "description": "Minimalistic TypeScript project boilerplate",
   "version": "1.0.0",
   "author": "Peter Absolon <peterabsolon@yahoo.com>",
   "license": "MIT",
