@@ -1,5 +1,5 @@
 import { main } from './index'
 
-it('returns "Hello world"', () => {
-  expect(main()).toBe('Hello world')
+it('returns "Hello Parrot"', () => {
+  expect(main()).toBe('Hello Parrot')
 })
