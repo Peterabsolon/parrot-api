@@ -1,0 +1,50 @@
+{
+  "name": "typescript-boilerplate",
+  "version": "1.0.0",
+  "author": "Peter Absolon <peterabsolon@yahoo.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf coverage build tmp",
+    "start": "node build/index.js",
+    "build": "yarn clean && tsc -p tsconfig.release.json",
+    "build:watch": "tsc -w -p tsconfig.release.json",
+    "format": "prettier --write **/*.{js,ts}",
+    "lint": "eslint . --ext ts --ext js",
+    "ts:check": "tsc -p . --noEmit",
+    "ts:watch": "yarn ts:check --watch",
+    "test": "jest",
+    "health-check": "yarn lint && yarn ts:check && yarn test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn health-check"
+    }
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint",
+      "yarn format"
+    ]
+  },
+  "dependencies": {
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint": "^7.12.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.0",
+    "jest": "^26.6.1",
+    "jest-watch-typeahead": "^0.6.1",
+    "lint-staged": "^10.4.2",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.4.2"
+  }
+}
