@@ -8,7 +8,7 @@
     "postinstall": "yarn build",
     "watch": "nodemon build/src/index.js",
     "dev": "yarn build:watch & yarn watch",
-    "start": "node build/index.js",
+    "start": "node build/src/index.js",
     "clean": "rimraf coverage build tmp",
     "build": "yarn clean && tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
@@ -17,6 +17,9 @@
     "ts:check": "tsc -p . --noEmit",
     "ts:watch": "yarn ts:check --watch",
     "test": "jest",
+    "db:migrate": "ts-node ./src/cli/migrate.ts",
+    "db:reset": "ts-node ./src/cli/reset.ts",
+    "db:seed": "ts-node ./src/cli/seed.ts",
     "health-check": "yarn lint && yarn ts:check && yarn test"
   },
   "husky": {
@@ -32,12 +35,11 @@
     ]
   },
   "dependencies": {
-    "dotenv": "^8.2.0"
-  },
-  "devDependencies": {
     "@types/jest": "^26.0.15",
+    "@types/pg": "^7.14.5",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.12.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.14.0",
@@ -48,9 +50,12 @@
     "jest-watch-typeahead": "^0.6.1",
     "lint-staged": "^10.4.2",
     "nodemon": "^2.0.6",
+    "pg": "^8.4.1",
+    "postgres-migrations": "^5.1.0",
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.4.2",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.3"
   }
 }

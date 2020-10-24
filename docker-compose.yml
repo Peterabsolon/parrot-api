@@ -1,0 +1,16 @@
+# Development
+
+version: '3'
+
+services:
+  pg:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: parrot
+      POSTGRES_USER: parrot
+      POSTGRES_PASSWORD: parrot
+    ports:
+      - 5433:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
